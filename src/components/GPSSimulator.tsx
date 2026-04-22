@@ -1,6 +1,6 @@
 import { useAppStore } from '../store/useAppStore';
 import { POIS_ROUTE } from '../data/mockData';
-import { MapPin, Play, Square, FastForward, GripHorizontal } from 'lucide-react';
+import { Play, Square, FastForward, GripHorizontal } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 
 export function GPSSimulator() {
@@ -30,7 +30,7 @@ export function GPSSimulator() {
   };
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: ReturnType<typeof setInterval>;
     if (isPlaying) {
       interval = setInterval(() => {
         const state = useAppStore.getState();

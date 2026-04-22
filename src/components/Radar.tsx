@@ -28,7 +28,8 @@ export function Radar() {
     }
   };
 
-  const currentFact = POIS_ROUTE[funFactIndex].funFact[language];
+  const langKey = (language as 'es' | 'en') || 'es';
+  const currentFact = POIS_ROUTE[funFactIndex].funFact[langKey];
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', padding: '24px' }}>
@@ -44,9 +45,9 @@ export function Radar() {
         </div>
 
         <p style={{ color: 'var(--text-secondary)', fontSize: '18px', fontWeight: 500, marginBottom: '8px' }}>
-          {t[language].radar}
+          {t[langKey].radar}
         </p>
-        <p style={{ color: '#aaa', fontSize: '14px' }}>{t[language].waiting}</p>
+        <p style={{ color: '#aaa', fontSize: '14px' }}>{t[langKey].waiting}</p>
       </div>
 
       <div className="card" style={{ marginBottom: '24px', background: 'rgba(212, 163, 115, 0.1)', border: '1px solid rgba(212, 163, 115, 0.2)' }}>
@@ -57,7 +58,7 @@ export function Radar() {
 
       <div style={{ marginTop: 'auto' }}>
         <p style={{ textAlign: 'center', fontSize: '14px', color: 'var(--text-secondary)', marginBottom: '12px' }}>
-          {t[language].word}
+          {t[langKey].word}
         </p>
         <div style={{ display: 'flex', gap: '8px', justifyContent: 'center' }}>
           {targetWord.split('').map((letter, i) => {

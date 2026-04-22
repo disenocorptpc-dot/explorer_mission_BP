@@ -2,7 +2,8 @@ import { useAppStore } from '../store/useAppStore';
 import { Map, Compass } from 'lucide-react';
 
 export function Onboarding() {
-  const { language, setLanguage, completeOnboarding } = useAppStore();
+  const { language, setLanguage, setCurrentView } = useAppStore();
+  const langKey = (language as 'es' | 'en') || 'es';
 
   const content = {
     es: {
@@ -19,13 +20,13 @@ export function Onboarding() {
     }
   };
 
-  const t = content[language];
+  const t = content[langKey];
 
   return (
     <div className="app-container" style={{ padding: '40px 24px', justifyContent: 'center' }}>
       <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '20px' }}>
         <select 
-          value={language} 
+          value={language || 'es'} 
           onChange={(e) => setLanguage(e.target.value as 'es' | 'en')}
           style={{ padding: '8px', borderRadius: '8px', border: '1px solid #ddd', background: 'transparent' }}
         >
@@ -51,7 +52,7 @@ export function Onboarding() {
         </div>
       </div>
 
-      <button className="btn" onClick={completeOnboarding}>
+      <button className="btn" onClick={() => setCurrentView('home')}>
         {t.btn}
       </button>
     </div>

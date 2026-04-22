@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { POIS_ROUTE } from '../data/mockData';
 
 type View = 'home' | 'map' | 'pack';
 
