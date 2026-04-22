@@ -30,10 +30,21 @@ export function GPSSimulator() {
   };
 
   useEffect(() => {
+    if (!isSimulatorActive) {
+      setIsPlaying(false);
+      targetIndex.current = 0;
+    }
+  }, [isSimulatorActive]);
+
+  useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
     if (isPlaying) {
       interval = setInterval(() => {
         const state = useAppStore.getState();
+        if (!state.isSimulatorActive) {
+          setIsPlaying(false);
+          return;
+        }
         if (state.activePOIId) return; // Pause movement if trivia is active
         const currentLoc = state.currentLocation;
         const targetPOI = POIS_ROUTE[targetIndex.current];
