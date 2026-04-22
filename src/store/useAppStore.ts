@@ -59,6 +59,6 @@ export const useAppStore = create<AppState>((set) => ({
     isSimulatorActive: false,
     activePOIId: null,
     distanceToNext: null,
-    currentLocation: POIS_ROUTE[0].coordinates
+    currentLocation: null
   }),
 }));

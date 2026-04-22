@@ -66,13 +66,13 @@ export function MapRoute() {
               {(isNext || (isCompleted && idx === POIS_ROUTE.length - 1 && collectedLetters.length === 5)) && (
                 <div className="animate-float" style={{ 
                   position: 'absolute', 
-                  top: '10px', 
-                  left: idx % 2 === 0 ? '-50px' : 'auto',
-                  right: idx % 2 === 0 ? 'auto' : '-50px',
+                  top: '-5px', 
+                  left: idx % 2 === 0 ? '-15px' : 'auto',
+                  right: idx % 2 === 0 ? 'auto' : '-15px',
                   zIndex: 20,
                   filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.3))'
                 }}>
-                  <img src="/assets/van_icon.webp" alt="Van" style={{ width: '50px', height: 'auto', objectFit: 'contain' }} />
+                  <img src="/assets/van_icon.webp" alt="Van" style={{ width: '40px', height: 'auto', objectFit: 'contain' }} />
                 </div>
               )}
               
